@@ -1,2 +1,2 @@
-# frontend-poc-change-events
+# Frontend-poc-change-events
 Ember JS Frontend for ABB POC
