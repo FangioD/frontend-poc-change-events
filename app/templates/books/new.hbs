@@ -1,0 +1,6 @@
+{{page-title "New"}}
+<h2>New Book</h2>
+<form {{on "submit" this.createBook}}>
+  Title: <Input @value={{this.newTitle}} placeholder="Fill in Title" />
+  <button type="submit">Create</button>
+</form>

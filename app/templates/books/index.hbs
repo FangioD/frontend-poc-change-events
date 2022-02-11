@@ -1,0 +1,10 @@
+{{page-title "Index"}}
+<h2>Index</h2>
+<LinkTo @route="books.new">Create new Book</LinkTo>
+<ul>
+{{#each this.model as |book|}}
+      <li>{{book.title}}
+      <button type="button" {{on "click" (fn this.removeBook book)}}>Remove</button>
+      </li>
+  {{/each}}
+</ul>
