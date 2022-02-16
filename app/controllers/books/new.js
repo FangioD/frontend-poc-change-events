@@ -5,6 +5,9 @@ import { inject as service } from '@ember/service';
 
 export default class BooksNewController extends Controller {
   @tracked newTitle = '';
+  @tracked newAbstract = '';
+  @tracked newIsbn = '';
+
   @service store;
 
   @action
@@ -12,10 +15,13 @@ export default class BooksNewController extends Controller {
     event.preventDefault();
     const book = this.store.createRecord('book', {
       title: this.newTitle,
-      isbn: '',
-      abstract: '',
+      isbn: this.newIsbn,
+      abstract: this.newAbstract,
     });
     book.save();
+    console.log(book);
     this.newTitle = '';
+    this.newAbstract= '';
+    this.newIsbn = '';
   }
 }

@@ -1,2 +1,8 @@
 {{page-title "Edit"}}
 <h2>Edit Book</h2>
+<form {{on "submit" this.editBook}}>
+  Title: <Input @value={{this.newTitle}}  /> <br>
+  ISBN: <Input @value={{this.newIsbn}}  /><br>
+  Abstract: <Input @value={{this.newAbstract}} /><br>
+  <button type="submit">Edit</button>
+</form>

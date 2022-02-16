@@ -2,9 +2,12 @@
 <h2>Index</h2>
 <LinkTo @route="books.new">Create new Book</LinkTo>
 <ul>
-{{#each this.model as |book|}}
-      <li>{{book.title}}
-      <button type="button" {{on "click" (fn this.removeBook book)}}>Remove</button>
-      </li>
+  {{#each (sort-by "title" this.model) as |book|}}
+  <li>
+    <LinkTo @route="books.edit" @model={{book}}>
+      {{book.title}}
+    </LinkTo>
+    <button type="button" {{on "click" (fn this.removeBook book)}}>Remove</button>
+  </li>
   {{/each}}
 </ul>
