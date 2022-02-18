@@ -1786,7 +1786,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("frontend-poc-change-events/app")["default"].create({"name":"frontend-poc-change-events","version":"0.0.0+6a4ba5ff"});
+            require("frontend-poc-change-events/app")["default"].create({"name":"frontend-poc-change-events","version":"0.0.0+2083256b"});
           }
         
 //# sourceMappingURL=frontend-poc-change-events.map
