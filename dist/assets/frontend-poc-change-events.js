@@ -71,6 +71,95 @@
   });
   0; //eaimeta@70e063a35619d71f0,"ember-welcome-page/components/welcome-page.js"eaimeta@70e063a35619d71f
 });
+;define("frontend-poc-change-events/controllers/accounts/new", ["exports", "@ember/controller", "@ember/object", "@glimmer/tracking", "@ember/service"], function (_exports, _controller, _object, _tracking, _service) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
+
+  0; //eaimeta@70e063a35619d71f0,"@ember/controller",0,"@ember/object",0,"@glimmer/tracking",0,"@ember/service"eaimeta@70e063a35619d71f
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  let AccountsNewController = (_class = class AccountsNewController extends _controller.default {
+    constructor() {
+      super(...arguments);
+
+      _initializerDefineProperty(this, "newName", _descriptor, this);
+
+      _initializerDefineProperty(this, "newNickname", _descriptor2, this);
+
+      _initializerDefineProperty(this, "newPassword", _descriptor3, this);
+
+      _initializerDefineProperty(this, "newConfirmPassword", _descriptor4, this);
+
+      _initializerDefineProperty(this, "store", _descriptor5, this);
+    }
+
+    createAccount(event) {
+      event.preventDefault();
+      const account = this.store.createRecord('account', {
+        name: this.newName,
+        nickname: this.newNickname,
+        password: this.newPassword,
+        passwordConfirmation: this.newConfirmPassword
+      });
+      account.save().then(function (response) {
+        console.log(response);
+        console.log("Resonse should be printed above");
+      });
+      this.newName = '';
+      this.newNickname = '';
+      this.newPassword = '';
+      this.newConfrimPassword = '';
+    }
+
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "newName", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return '';
+    }
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "newNickname", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return '';
+    }
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "newPassword", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return '';
+    }
+  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "newConfirmPassword", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return '';
+    }
+  }), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, "store", [_service.inject], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class.prototype, "createAccount", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "createAccount"), _class.prototype)), _class);
+  _exports.default = AccountsNewController;
+});
 ;define("frontend-poc-change-events/controllers/books/edit", ["exports", "@ember/controller", "@ember/object", "@ember/service", "tracked-toolbox", "@glimmer/tracking"], function (_exports, _controller, _object, _service, _trackedToolbox, _tracking) {
   "use strict";
 
@@ -1329,6 +1418,62 @@
   };
   _exports.default = _default;
 });
+;define("frontend-poc-change-events/models/account", ["exports", "@ember-data/model"], function (_exports, _model) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _dec, _dec2, _dec3, _dec4, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+
+  0; //eaimeta@70e063a35619d71f0,"@ember-data/model"eaimeta@70e063a35619d71f
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  let AccountModel = (_dec = (0, _model.attr)(), _dec2 = (0, _model.attr)(), _dec3 = (0, _model.attr)(), _dec4 = (0, _model.attr)(), (_class = class AccountModel extends _model.default {
+    constructor() {
+      super(...arguments);
+
+      _initializerDefineProperty(this, "name", _descriptor, this);
+
+      _initializerDefineProperty(this, "nickname", _descriptor2, this);
+
+      _initializerDefineProperty(this, "password", _descriptor3, this);
+
+      _initializerDefineProperty(this, "passwordConfirmation", _descriptor4, this);
+    }
+
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "name", [_dec], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "nickname", [_dec2], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "password", [_dec3], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, "passwordConfirmation", [_dec4], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  })), _class));
+  _exports.default = AccountModel;
+});
 ;define("frontend-poc-change-events/models/book", ["exports", "@ember-data/model"], function (_exports, _model) {
   "use strict";
 
@@ -1409,7 +1554,36 @@
       });
       this.route('new');
     });
+    this.route('accounts', function () {
+      this.route('new');
+    });
   });
+});
+;define("frontend-poc-change-events/routes/accounts/index", ["exports", "@ember/routing/route"], function (_exports, _route) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  0; //eaimeta@70e063a35619d71f0,"@ember/routing/route"eaimeta@70e063a35619d71f
+
+  class AccountsIndexRoute extends _route.default {}
+
+  _exports.default = AccountsIndexRoute;
+});
+;define("frontend-poc-change-events/routes/accounts/new", ["exports", "@ember/routing/route"], function (_exports, _route) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  0; //eaimeta@70e063a35619d71f0,"@ember/routing/route"eaimeta@70e063a35619d71f
+
+  class AccountsNewRoute extends _route.default {}
+
+  _exports.default = AccountsNewRoute;
 });
 ;define("frontend-poc-change-events/routes/books/edit", ["exports", "@ember/routing/route", "@ember/service"], function (_exports, _route, _service) {
   "use strict";
@@ -1617,6 +1791,42 @@
   });
   0; //eaimeta@70e063a35619d71f0,"ember-data/store"eaimeta@70e063a35619d71f
 });
+;define("frontend-poc-change-events/templates/accounts/index", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  0; //eaimeta@70e063a35619d71f0,"@ember/template-factory"eaimeta@70e063a35619d71f
+
+  var _default = (0, _templateFactory.createTemplateFactory)({
+    "id": "RMfBwLRp",
+    "block": "[[[1,[28,[35,0],[\"Index\"],null]],[1,\"\\n\"],[46,[28,[37,2],null,null],null,null,null]],[],false,[\"page-title\",\"component\",\"-outlet\"]]",
+    "moduleName": "frontend-poc-change-events/templates/accounts/index.hbs",
+    "isStrictMode": false
+  });
+
+  _exports.default = _default;
+});
+;define("frontend-poc-change-events/templates/accounts/new", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  0; //eaimeta@70e063a35619d71f0,"@ember/template-factory"eaimeta@70e063a35619d71f
+
+  var _default = (0, _templateFactory.createTemplateFactory)({
+    "id": "ZInn0ifv",
+    "block": "[[[1,[28,[35,0],[\"New\"],null]],[1,\"\\n\"],[10,\"h2\"],[12],[1,\"Registration\"],[13],[1,\"\\n\"],[11,\"form\"],[4,[38,1],[\"submit\",[30,0,[\"createAccount\"]]],null],[12],[1,\"\\n  Name: \"],[8,[39,2],[[24,\"placeholder\",\"Fill in Name\"]],[[\"@value\"],[[30,0,[\"newName\"]]]],null],[1,\" \"],[10,\"br\"],[12],[13],[1,\"\\n  Nickname: \"],[8,[39,2],[[24,\"placeholder\",\"Fill in Nickname\"]],[[\"@value\"],[[30,0,[\"newNickname\"]]]],null],[10,\"br\"],[12],[13],[1,\"\\n  Password: \"],[8,[39,2],[[24,\"placeholder\",\"Fill in Password\"]],[[\"@type\",\"@value\"],[\"password\",[30,0,[\"newPassword\"]]]],null],[10,\"br\"],[12],[13],[1,\"\\n  Confirm password: \"],[8,[39,2],[[24,\"placeholder\",\"Confirm Password\"]],[[\"@type\",\"@value\"],[\"password\",[30,0,[\"newConfirmPassword\"]]]],null],[10,\"br\"],[12],[13],[1,\"\\n  \"],[10,\"button\"],[14,4,\"submit\"],[12],[1,\"Create\"],[13],[1,\"\\n\"],[13],[1,\"\\n\"]],[],false,[\"page-title\",\"on\",\"input\"]]",
+    "moduleName": "frontend-poc-change-events/templates/accounts/new.hbs",
+    "isStrictMode": false
+  });
+
+  _exports.default = _default;
+});
 ;define("frontend-poc-change-events/templates/application", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
   "use strict";
 
@@ -1627,8 +1837,8 @@
   0; //eaimeta@70e063a35619d71f0,"@ember/template-factory"eaimeta@70e063a35619d71f
 
   var _default = (0, _templateFactory.createTemplateFactory)({
-    "id": "zNNL+Rr/",
-    "block": "[[[1,[28,[35,0],[\"FrontendPocChangeEvents\"],null]],[1,\"\\n\\n\"],[10,\"h1\"],[12],[1,\"Welcome\"],[13],[1,\"\\n\\n\"],[8,[39,1],null,[[\"@route\"],[\"books\"]],[[\"default\"],[[[[1,\"Books\"]],[]]]]],[1,\"\\n\\n\"],[46,[28,[37,3],null,null],null,null,null]],[],false,[\"page-title\",\"link-to\",\"component\",\"-outlet\"]]",
+    "id": "wVdeWDlA",
+    "block": "[[[1,[28,[35,0],[\"FrontendPocChangeEvents\"],null]],[1,\"\\n\\n\"],[10,\"h1\"],[12],[1,\"Welcome\"],[13],[1,\"\\n\\n\"],[8,[39,1],null,[[\"@route\"],[\"books\"]],[[\"default\"],[[[[1,\"Books\"]],[]]]]],[1,\"\\n\"],[8,[39,1],null,[[\"@route\"],[\"accounts.new\"]],[[\"default\"],[[[[1,\"Registration\"]],[]]]]],[1,\"\\n\\n\"],[46,[28,[37,3],null,null],null,null,null]],[],false,[\"page-title\",\"link-to\",\"component\",\"-outlet\"]]",
     "moduleName": "frontend-poc-change-events/templates/application.hbs",
     "isStrictMode": false
   });
@@ -1786,7 +1996,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("frontend-poc-change-events/app")["default"].create({"name":"frontend-poc-change-events","version":"0.0.0+2083256b"});
+            require("frontend-poc-change-events/app")["default"].create({"name":"frontend-poc-change-events","version":"0.0.0+1cb357cb"});
           }
         
 //# sourceMappingURL=frontend-poc-change-events.map

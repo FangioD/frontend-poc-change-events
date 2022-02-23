@@ -1,0 +1,9 @@
+{{page-title "New"}}
+<h2>Registration</h2>
+<form {{on "submit" this.createAccount}}>
+  Name: <Input @value={{this.newName}} placeholder="Fill in Name" /> <br>
+  Nickname: <Input @value={{this.newNickname}} placeholder="Fill in Nickname" /><br>
+  Password: <Input @type="password" @value={{this.newPassword}} placeholder="Fill in Password" /><br>
+  Confirm password: <Input @type="password" @value={{this.newConfirmPassword}} placeholder="Confirm Password" /><br>
+  <button type="submit">Create</button>
+</form>

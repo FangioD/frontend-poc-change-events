@@ -12,4 +12,7 @@ Router.map(function () {
     this.route('edit', {path: '/edit/:book_id'});
     this.route('new');
   });
+  this.route('accounts', function() {
+    this.route('new');
+  });
 });
